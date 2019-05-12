@@ -1,0 +1,17 @@
+from PyPDF2 import PdfFileReader
+
+filename = "name.pdf"
+reader = PdfFileReader(filename)
+
+if reader.isEncrypted:
+    reader.decrypt('')
+
+page = reader.getNumPages()
+print(page)
+
+
+import pdfplumber
+
+filename = "name.pdf"
+f = pdfplumber.open(filename)
+print(len(f.pages))
